@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 				version="2.0">
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+
+  <schedule>
+    <job>
+      <name>HelloWorldJob</name>
+      <group>TestGroup</group>
+      <description>HelloWorldJob测试任务</description>
+      <job-type>QuartzNetCore.HelloWorldJob, QuartzNetCore</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <simple>
+        <name>TestTrigger</name>
+        <group>TestGroup</group>
+        <description>TestTrigger测试触发器</description>
+        <job-name>HelloWorldJob</job-name>
+        <job-group>TestGroup</job-group>
+        <repeat-count>-1</repeat-count>
+        <repeat-interval>1000</repeat-interval>
+      </simple>
+    </trigger>
+  </schedule>
+</job-scheduling-data>
